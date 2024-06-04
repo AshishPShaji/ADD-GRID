@@ -1,0 +1,23 @@
+import pytz
+import datetime
+
+try:
+    # Get all timezones
+    all_timezones = pytz.all_timezones
+
+    # Get current datetime
+    current_datetime = datetime.datetime.now()
+
+    # Iterate through timezones
+    for timezone in all_timezones:
+        # Get timezone object
+        tz = pytz.timezone(timezone)
+        # Convert current datetime to timezone
+        current_datetime_tz = current_datetime.astimezone(tz)
+        # Format current datetime in desired format
+        current_datetime_str = current_datetime_tz.strftime("%d-%m-%Y %H-%M-%S")
+        # Print timezone and current datetime side by side
+        print(f"{timezone}: {current_datetime_str}")
+
+except:
+    print("CAN'T SHOW MORE THAN THIS :(")
